@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Color Studio — Pro Color & Gradient Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <header class="header">
+      <h1>Color Studio</h1>
+      <p class="tagline">Professional color & gradient generator — save palettes, copy CSS, export PNG.</p>
+    </header>
+
+    <section class="controls" aria-label="Controls">
+      <div class="control-row">
+        <button id="randomBtn" class="btn primary" title="Randomize (Space)">Randomize</button>
+
+        <label class="switch">
+          <input type="checkbox" id="gradientToggle" />
+          <span class="slider"></span>
+        </label>
+        <span class="muted">Gradient</span>
+
+        <label class="label-inline" for="angleInput">Angle</label>
+        <input id="angleInput" type="number" class="small" min="0" max="360" value="90" />°
+
+        <button id="savePaletteBtn" class="btn" title="Save current palette">Save Palette</button>
+        <button id="exportCssBtn" class="btn" title="Copy CSS">Copy CSS</button>
+        <button id="downloadBtn" class="btn" title="Download PNG">Download PNG</button>
+      </div>
+
+      <div class="control-row">
+        <input id="colorInput" type="text" aria-label="Hex color input" placeholder="#3498db or rgb(...)" />
+        <button id="applyColorBtn" class="btn">Apply</button>
+
+        <label class="muted">Presets:</label>
+        <div id="presetList" class="preset-list" aria-hidden="false"></div>
+      </div>
+    </section>
+
+    <section class="studio" aria-label="Color preview and controls">
+      <div id="preview" class="preview" role="img" aria-label="Color preview">
+        <div class="preview-overlay">
+          <div id="swatches" class="swatches" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <h2>Palette</h2>
+        <ul id="palette" class="palette" aria-label="Current palette"></ul>
+
+        <h3>History</h3>
+        <div id="history" class="history"></div>
+
+        <p class="muted small">Shortcuts: <kbd>Space</kbd> randomize · <kbd>C</kbd> copy CSS · <kbd>S</kbd> save palette</p>
+      </aside>
+    </section>
+
+    <footer class="footer muted">
+      Made with ❤️ · No frameworks · Accessible · Save palettes in browser
+    </footer>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
